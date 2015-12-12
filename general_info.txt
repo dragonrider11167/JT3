@@ -2,12 +2,13 @@
 
 Characters:
 
-  --[Asian nerd]
+  --Utah
     -Main character
     -asian
 
   --[AI]
     -Cell phones have become personal AIs
+    -AI is companion
 
   --[antagonist]
     -Final boss
@@ -18,5 +19,5 @@ Characters:
 
 Setting:
   --dystopian future
-    -yr 2069
+    -yr 2142
   --
