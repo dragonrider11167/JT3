@@ -1,23 +1,22 @@
+--Kyou
+  -Main character
+  -Asian guy
+  -Mid 30s
 
 
-Characters:
-
-  --Utah
-    -Main character
-    -asian
-
-  --[AI]
-    -Cell phones have become personal AIs
-    -AI is companion
-
-  --[antagonist]
-    -Final boss
-
-  --
+--ZION
+  -Belonged to some alien before was discarded into trash hold and was named ZION by them
+  -AI is found on alien's cell phone like device
+  -Starts out by being unintentionally absorbed into energy gun
+  -Unknown to char or player formulates a plan
 
 
+--The Energy-Tron (tm)
+  -Starts out with massive energy storage
+  -When absorbs AI loses most of it to accommodate AI
+  -Upgrades along the way for extra energy storage
 
-Setting:
-  --dystopian future
-    -yr 2142
-  --
+
+--Setting
+  -dystopian future
+  -yr 2091
