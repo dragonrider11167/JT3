@@ -1,0 +1,22 @@
+
+
+Characters:
+
+  --[Asian nerd]
+    -Main character
+    -asian
+
+  --[AI]
+    -Cell phones have become personal AIs
+
+  --[antagonist]
+    -Final boss
+
+  --
+
+
+
+Setting:
+  --dystopian future
+    -yr 2069
+  --
