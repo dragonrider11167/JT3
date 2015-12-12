@@ -2,6 +2,8 @@
   -Main character
   -Asian guy
   -Mid 30s
+  -Full time job at Central Labs
+  -Part time job at SETI
 
 
 --ZION
@@ -11,12 +13,13 @@
   -Unknown to char or player formulates a plan
 
 
---The Energy-Tron (tm)
+--[The Energy-Tron (tm)]
   -Starts out with massive energy storage
-  -When absorbs AI loses most of it to accommodate AI
+    |When absorbs AI loses most of it to accommodate AI
   -Upgrades along the way for extra energy storage
-
+    |Attept to get more storage by transferring to the internet like the ANSIBLE AI in the ender books
 
 --Setting
-  -dystopian future
-  -yr 2091
+  -Dystopian future
+  -Yr 2091
+  -Tokyo
