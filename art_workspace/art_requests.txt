@@ -1,0 +1,21 @@
+INTRO (first apperance)
+-Tile set for Central Labs
+  -Futuristic
+  -Dark
+    -Backgrounds (walls)(posters should be normal color) darker than rest
+  -Lots of metal
+  -Posters of various sorts
+    -Puns are great
+    -Will be changed throughout the game
+  -Furnature
+    -Desks
+    -Tables
+    -Chairs
+    -Computers
+    -Wall mounted tvs (no stand)
+      -Will eventually have stuff but ignore for now
+    -Microscopes
+    -[Energy-Tron] not on character but on stand
+      -Stand without [Energy-Tron]
+      -Also character without [Energy-Tron]
+    -More stuff that has not been thought of yet

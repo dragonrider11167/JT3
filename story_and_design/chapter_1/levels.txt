@@ -3,7 +3,7 @@ START INTRO
     -Work time is end
     -Char is leave
   -Goes home for nap in between Central Labs and SETI
-    -Brings [Energy-Tron (tm)]
+    -Brings [Energy-Tron (tm)] for work at home
   -Goes to SETI to watch screens
   -Finds anomaly
     -Investigates
@@ -28,7 +28,7 @@ START LEVEL 1
     -You are liek im still curios
     -AI like fine be that way
     _uyou like coolz
-    -aI leik kk open door now
+    -aI leik kk i open door now
   --END DIALaUGE
   -GO INTO SHIEP
   -FIND ALL DEED ALNIES
