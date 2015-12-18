@@ -1,0 +1,8 @@
+--Chapter, area, and map notation
+  -Example 1: 1-4(Central Labs)(5)-3(Lobby)(2)
+    -First number: chapter number
+    -Second number: area number (global)
+    -Third number: room/map number (within area)
+
+    -Words in parenthasies: name of area (optional)
+    -Numbers in parenthasies: version of area/room

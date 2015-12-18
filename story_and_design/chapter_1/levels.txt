@@ -1,17 +1,5 @@
-1-0-1 (intro)
-  -Working at Central Labs
-    -Work time is end
-    -Kyou is leave
-  -Goes home for nap in between Central Labs and SETI
-    -Brings [Energy-Tron (tm)] for work at home
-  -Goes to SETI to watch screens
-  -Finds anomaly
-    -Investigates
-    -Discovers space ship in orbit
-    -Tells nobody
-    -Goes to in development teleporter
-    -Teleports aboard the ship
-end 1-0-1
+
+
 
 
 1-1
