@@ -1,6 +1,6 @@
 0(intro)-1
   -Working at Central Labs (0-1-1(lab))
-    -work time is end
+    -Work time is end
     -Kyou is leave
       -Elevator (0-1-2)
       -Lobby (0-1-3)
