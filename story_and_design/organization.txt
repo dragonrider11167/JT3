@@ -1,8 +1,17 @@
+AREA NOTATION
 --Chapter, area, and map notation
   -Example 1: 1-4(Central Labs)(5)-3(Lobby)(2)
     -First number: chapter number
     -Second number: area number (global)
-    -Third number: room/map number (within area)
+    -Third number: room number (within area)
 
     -Words in parenthasies: name of area (optional)
     -Numbers in parenthasies: version of area/room
+
+
+DEFINITIONS
+  -Room
+    -A map made in [tiles].
+    -Can function as a room in a building, an area outside like a sidewalk in between buildings, a group of rooms, etc.
+  -Area
+    -A group of rooms arranged by physical location within the universe used for design and programming organization
