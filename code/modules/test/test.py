@@ -2,18 +2,15 @@ from framebase import frame
 import logger, framebase, pygame
 globals().update(logger.build_module_logger(__name__))
 
-@frame.register_this("pygame_test")
-class PygameTest(framebase.Module, framebase.Observer):
+class DemoRenderComponent(frame.entities.Component):
+    def handle_event_render(self, dt):
+        frame.screen.blit(frame.loader["test"], (10,10))
+
+@frame.register_this("entity_test")
+class EntityTest(framebase.Observer):
     def __init__(self):
-        debug("PygameTest loading")
+        debug("EntityTest loading")
 
-    def update(self, dt):
-        if frame.statemanager.current=="example":
-            pygame.draw.rect(frame.screen, (255,0,0), pygame.Rect(10,10,50,50))
-
-    def handle_event_pygame_event(self, event):
-        if event.type==pygame.KEYDOWN:
-            if event.key==pygame.K_n:
-                frame.statemanager.push("example")
-            if event.key==pygame.K_p:
-                frame.statemanager.pop()
+    def handle_event_core_loaded(self):
+        frame.entities.add_entity(frame.entities.Entity.from_dict(frame.loader["cfg_ent_test"]))
+        frame.statemanager.push("game")

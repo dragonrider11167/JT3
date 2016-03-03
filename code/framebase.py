@@ -8,9 +8,9 @@ class _Frame:
         self._observers=[]
 
     def __getattr__(self, name):
-        try:
+        if name in self.__dict__:
             return object.__getattr__(self, name)
-        except AttributeError:
+        else:
             return self.modules[name]
 
     def register_this(self, name):
@@ -21,12 +21,9 @@ class _Frame:
         return _register_module_decorator
 
     def send_event(self, name, *a, **k):
+        # print(name)
         for module in self._observers:
             module.handle_event(name, *a, **k)
-
-    def update(self, dt):
-        for module in self.modules.values():
-            module.update(dt)
 
 class Serializable:
     def load_data(self, data):
@@ -35,18 +32,10 @@ class Serializable:
     def save_data(self, data):
         pass
 
-class Module(Serializable):
-    def init_config(self):
-        pass
-
-    def update(self, dt):
-        pass
-
 class Observer:
     def handle_event(self, name, *args, **kwargs):
-        try:
+        if "handle_event_"+name in dir(self):
             getattr(self, "handle_event_"+name)(*args, **kwargs)
-        except AttributeError:
-            pass
+
 import loader
 frame=_Frame()

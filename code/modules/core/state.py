@@ -1,11 +1,13 @@
 from framebase import frame
 import logger, framebase
-debug, info, warning, error, critical = logger.build_module_logger("states")
+globals().update(logger.build_module_logger("states"))
 
-class StateData:pass
+class StateData:
+    def __init__(self):
+        self.initilized=False
 
 @frame.register_this("statemanager")
-class StateManager(framebase.Module):
+class StateManager:
     def __init__(self):
         self.stack=[] # [[name, statedata],...]
 
@@ -18,6 +20,7 @@ class StateManager(framebase.Module):
         return self.stack[-1][1] if self.stack else None
 
     def push(self, state):
+        debug("Entering state "+state)
         if self.current:
             frame.send_event("state_suspending", self.current)
         self.stack.append([state, StateData()])

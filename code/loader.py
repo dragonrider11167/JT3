@@ -3,7 +3,7 @@ globals().update(logger.build_module_logger(__name__))
 
 POISON_NAMES=["__pycache__"]
 
-class Loader(framebase.Module):
+class Loader:
     def __init__(self):
         self.load_methods={
             ".py":[self.load_plugin]
@@ -17,10 +17,7 @@ class Loader(framebase.Module):
         self.load_methods[ext].append(func)
 
     def __getitem__(self, name):
-        try:
-            return object.__getitem__(self, name)
-        except AttributeError:
-            return self.assets[name]
+        return self.assets[name]
 
     def load_plugin(self, fullpath, directory, filename):
         with open(fullpath) as f:
@@ -62,3 +59,4 @@ class Loader(framebase.Module):
                     warning("Encountered error loading "+str(item)+":"+str(e))
                     next_to_load.append(item)
             to_load=next_to_load
+        framebase.frame.send_event("loading_finished")
