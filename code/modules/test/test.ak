@@ -1,0 +1,9 @@
+{
+  "assets":[
+    {
+      "name":"test",
+      "type":"image",
+      "path":"$LDIR/test.jpg"
+    }
+  ]
+}
