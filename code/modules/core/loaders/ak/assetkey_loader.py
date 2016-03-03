@@ -1,5 +1,5 @@
 from framebase import frame
-import logger, framebase, pygame, json
+import logger, framebase, json
 globals().update(logger.build_module_logger("akloader"))
 
 @frame.register_this("akloader")

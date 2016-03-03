@@ -1,7 +1,10 @@
 import os, logger, framebase, imp, collections
 globals().update(logger.build_module_logger(__name__))
 
-POISON_NAMES=["__pycache__"]
+POISON_NAMES=["__pycache__", ".pyc", ".nfs"]
+
+class RequiredModulesNotLoaded(Exception):pass
+class AbortModuleLoad(Exception):pass
 
 class Loader:
     def __init__(self):
@@ -10,6 +13,15 @@ class Loader:
         }
         self.assets={}
         self._selected=[]
+
+    def require_modules(self, *a):
+        for item in a:
+            if item not in framebase.frame.modules.keys(): raise RequiredModulesNotLoaded()
+
+    def require_library(self, l):
+        try: __import__(l)
+        except ImportError:
+            raise AbortModuleLoad(l+" not availible")
 
     def add_load_method(self, ext, func):
         if ext not in self.load_methods.keys():
@@ -49,6 +61,7 @@ class Loader:
     def load_selected(self):
         debug("Loading...")
         to_load=list(collections.OrderedDict.fromkeys(self._selected)) #remove duplicates
+        last_attempt=None
         while to_load:
             debug("Loading attempt start. List = "+str(to_load))
             next_to_load=[]
@@ -56,7 +69,14 @@ class Loader:
                 try:
                     self.load_file(item)
                 except BaseException as e:
-                    warning("Encountered error loading "+str(item)+":"+str(e))
-                    next_to_load.append(item)
+                    if not isinstance(e, RequiredModulesNotLoaded): warning("Encountered error loading "+str(item)+":"+str(e))
+                    else:debug("Delaying load until module requirements satasfied")
+                    if not isinstance(e, AbortModuleLoad):
+                        next_to_load.append(item)
+                    else:info("Module load aborted: "+str(e))
+            if to_load==last_attempt:
+                warning("Loop detected, aborting load")
+                break
             to_load=next_to_load
+            last_attempt=to_load
         framebase.frame.send_event("loading_finished")

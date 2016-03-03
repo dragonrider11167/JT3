@@ -1,4 +1,5 @@
 from framebase import frame
+frame.loader.require_library("pygame")
 import logger, framebase, pygame
 globals().update(logger.build_module_logger(__name__))
 

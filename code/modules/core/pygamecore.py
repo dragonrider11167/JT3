@@ -1,6 +1,10 @@
 from framebase import frame
-import logger, framebase, pygame
+frame.loader.require_library("pygame")
+import logger, framebase
 globals().update(logger.build_module_logger("pygame"))
+
+try: import pygame
+except ImportError: error("Pygame not availible, PygameCore will fail!")
 
 @frame.register_this("pygame")
 class PygameCore(framebase.Observer):
