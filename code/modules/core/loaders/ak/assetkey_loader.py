@@ -30,7 +30,7 @@ class AssetKeyLoader:
     def _replace_ldir(self, element, directory):
         new={}
         for k, v in element.items():
-            new[k]=v.replace("$LDIR", directory+'/')
+            new[k]=v.replace("$LDIR", directory+'/') if type(v) is str else v
         return new
 
 frame.loader.add_load_method(".ak", frame.akloader)
