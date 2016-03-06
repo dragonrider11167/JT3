@@ -2,7 +2,7 @@ from framebase import frame
 import json
 
 def load_image(fullpath, directory, filename):
-    image=pygame.image.load(fullpath)
+    image=frame.pygame.image.load(fullpath)
     if "png" in filename:
         image=image.convert_alpha()
     return image

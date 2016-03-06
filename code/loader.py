@@ -18,10 +18,14 @@ class Loader:
         for item in a:
             if item not in framebase.frame.modules.keys(): raise RequiredModulesNotLoaded()
 
-    def require_library(self, l):
-        try: __import__(l)
-        except ImportError:
-            raise AbortModuleLoad(l+" not availible")
+    def abort_module_load(self, err=""):
+        raise AbortModuleLoad(err)
+
+    def require_library(self, *ls):
+        for l in ls:
+            try: __import__(l)
+            except ImportError:
+                raise AbortModuleLoad(l+" not availible")
 
     def add_load_method(self, ext, func):
         if ext not in self.load_methods.keys():
@@ -69,14 +73,15 @@ class Loader:
                 try:
                     self.load_file(item)
                 except BaseException as e:
-                    if not isinstance(e, RequiredModulesNotLoaded): warning("Encountered error loading "+str(item)+":"+str(e))
+                    if not (isinstance(e, RequiredModulesNotLoaded) or isinstance(e, AbortModuleLoad)): exception("Encountered error loading "+str(item)+":"+str(e))
                     else:debug("Delaying load until module requirements satasfied")
                     if not isinstance(e, AbortModuleLoad):
                         next_to_load.append(item)
                     else:info("Module load aborted: "+str(e))
-            if to_load==last_attempt:
-                warning("Loop detected, aborting load")
+            if next_to_load==last_attempt:
+                warning("Loop detected, aborting load. to_load = "+str(to_load))
                 break
             to_load=next_to_load
             last_attempt=to_load
+        info("Loading Finished")
         framebase.frame.send_event("loading_finished")

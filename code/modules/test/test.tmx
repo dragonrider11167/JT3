@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="10" tilewidth="32" tileheight="32" nextobjectid="23">
+ <tileset firstgid="1" name="tmw_desert_spacing" tilewidth="32" tileheight="32" spacing="1" margin="1" tilecount="48" columns="8">
+  <image source="C:/Program Files (x86)/Tiled/examples/tmw_desert_spacing.png" trans="ff00ff" width="265" height="199"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="20" height="10">
+  <data encoding="csv">
+20,18,18,18,18,18,18,18,18,18,18,18,18,18,18,18,18,18,18,21,
+11,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,9,
+11,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,9,
+11,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,9,
+11,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,9,
+11,30,30,30,30,30,30,30,30,30,30,30,30,25,26,27,30,30,30,9,
+11,30,30,30,30,30,30,30,30,25,26,27,30,41,42,43,30,30,30,9,
+11,30,30,30,30,25,26,27,30,41,42,43,30,30,30,30,1,2,3,9,
+11,30,30,30,30,41,42,43,30,30,30,30,30,30,30,30,9,10,11,9,
+28,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,29,10,28,29
+</data>
+ </layer>
+ <objectgroup name="collision">
+  <object id="13" x="-34.6667" y="-32" width="760" height="46.6667"/>
+  <object id="14" x="-165.333" y="-72" width="182.667" height="524"/>
+  <object id="15" x="-2" y="306.667" width="652" height="24"/>
+  <object id="17" x="624" y="-2.66667" width="38.6667" height="341.333"/>
+  <object id="18" x="173.333" y="236.667" width="73.3333" height="41.3333"/>
+  <object id="19" x="301.333" y="204" width="72.6667" height="40.6667"/>
+  <object id="20" x="429.333" y="172.667" width="72" height="40"/>
+  <object id="21" x="528" y="238.667" width="64.6667" height="118.667"/>
+ </objectgroup>
+ <objectgroup name="entities">
+  <object id="22" x="269.333" y="108.667">
+   <properties>
+    <property name="_id" value="player"/>
+    <property name="_prototype" value="cfg_ent_player"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

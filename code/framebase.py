@@ -1,4 +1,4 @@
-
+import sys
 
 class _Frame:
     def __init__(self):
@@ -6,6 +6,10 @@ class _Frame:
             "loader":loader.Loader()
         }
         self._observers=[]
+        sys.path.append("libs")
+
+    def load_library_as_module(self, name):
+        self.modules[name]=__import__(name)
 
     def __getattr__(self, name):
         if name in self.__dict__:
@@ -13,11 +17,14 @@ class _Frame:
         else:
             return self.modules[name]
 
-    def register_this(self, name):
+    def register_this(self, name, insert_order=None):
         def _register_module_decorator(module):
             self.modules[name]=module()
             if isinstance(self.modules[name], Observer):
-                self._observers.append(self.modules[name])
+                if insert_order is None:
+                    self._observers.append(self.modules[name])
+                else:
+                    self._observers.insert(insert_order, self.modules[name])
         return _register_module_decorator
 
     def send_event(self, name, *a, **k):

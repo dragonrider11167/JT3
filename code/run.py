@@ -16,6 +16,5 @@ for item in engine_config["load_order"]:
 debug("Loading...")
 frame.loader.load_selected()
 
-
 info("Starting core "+engine_config["main_provider"])
 frame.modules[engine_config["main_provider"]].run_main()
