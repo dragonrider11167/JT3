@@ -1,19 +1,20 @@
 1-1
-  -Finds battery looking thing
-    -(Is actually ZION)
-  -Locked in trash hold of ship until absorb ZION into [Energy-Tron (tm)]
-  -Once thing is absorbed thigns spaz out
-  --DIALAUGE
-    -ZION introduces itself
-    -You are like woah
-    -ZION is like ikr
-    -You are like aliens are cool dude
-    -ZION is like I hate aliens they threw me down here in the trash hold
-    -You are liek im still curios
-    -ZION like fine be that way
-    -you like coolz
-    -ZNON leik kk i open door now
-  --END DIALaLOOG
+  -SHIP'S TRASH HOLD (1-1-0)
+    -Finds battery looking thing
+      -(Is actually ZION)
+    -Locked in trash hold of ship until absorb ZION into [Energy-Tron (tm)]
+    -Once thing is absorbed thigns spaz out
+    --DIALAUGE
+      -ZION introduces itself
+      -You are like woah
+      -ZION is like ikr
+      -You are like aliens are cool dude
+      -ZION is like I hate aliens they threw me down here in the trash hold
+      -You are liek im still curios
+      -ZION like fine be that way
+      -you like coolz
+      -ZNON leik kk i open door now
+    --END DIALAUGE
   -GO INTO SHIEP
   -FIND ALL DEED ALNIES
   -ZION liek idek what happen (he doent actually know and enver do)
