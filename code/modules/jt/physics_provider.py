@@ -6,6 +6,7 @@ globals().update(logger.build_module_logger(__name__))
 class DynamicPhysicsManager(framebase.Observer):
     def handle_event_loading_finished(self):
         self.gravity=frame.loader["gravity"]
+        self.drag=frame.loader["drag"]
 
     def get_x_gravity(self):
         return self.get_gravity()[0]
@@ -15,3 +16,6 @@ class DynamicPhysicsManager(framebase.Observer):
 
     def get_gravity(self):
         return self.gravity
+
+    def get_drag(self):
+        return self.drag

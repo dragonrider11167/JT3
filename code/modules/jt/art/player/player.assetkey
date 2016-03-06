@@ -1,0 +1,32 @@
+{
+  "assets":[
+    {
+      "name":"player_walk_1",
+      "type":"image",
+      "path":"$LDIR/Kyou.png"
+    },
+    {
+      "name":"player_walk_2",
+      "type":"image",
+      "path":"$LDIR/Kyou2.png"
+    },
+    {
+      "name":"arm_blank",
+      "type":"image",
+      "path":"$LDIR/arm1.png"
+    },
+    {
+      "name":"arm_blank",
+      "type":"image",
+      "path":"$LDIR/arm2.png"
+    },
+    {
+      "name":"player_walk_cycle",
+      "type":"config",
+      "data":[
+        "player_walk_1",
+        "player_walk_2"
+      ]
+    }
+  ]
+}

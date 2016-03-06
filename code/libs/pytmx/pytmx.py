@@ -362,7 +362,7 @@ class TiledMap(TiledElement):
             if ts.source is None:
                 continue
 
-            path = os.path.join(os.path.dirname(self.filename), ts.source)
+            path = os.path.join(os.path.dirname(ts.path), ts.source)
             colorkey = getattr(ts, 'trans', None)
             loader = self.image_loader(path, colorkey)
 
@@ -389,7 +389,7 @@ class TiledMap(TiledElement):
                     # flags might rotate/flip the image, so let the loader
                     # handle that here
                     for gid, flags in gids:
-                        self.images[gid] = loader(rect, flags)
+                        self.images[gid] = loader(rect, flags).convert_alpha()
 
         # load image layer images
         for layer in (i for i in self.layers if isinstance(i, TiledImageLayer)):
@@ -411,7 +411,7 @@ class TiledMap(TiledElement):
             source = props.get('source', None)
             if source:
                 colorkey = props.get('trans', None)
-                path = os.path.join(os.path.dirname(self.filename), source)
+                path = os.path.join(os.path.dirname(self.get_tileset_from_gid(real_gid).path), source)
                 loader = self.image_loader(path, colorkey)
                 image = loader()
                 self.images[real_gid] = image
@@ -771,6 +771,7 @@ class TiledTileset(TiledElement):
                 # we need to mangle the path - tiled stores relative paths
                 dirname = os.path.dirname(self.parent.filename)
                 path = os.path.abspath(os.path.join(dirname, source))
+                self.path=path
                 try:
                     node = ElementTree.parse(path).getroot()
                 except IOError:

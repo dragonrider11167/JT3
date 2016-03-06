@@ -23,11 +23,17 @@ class TMXMap:
 
     def _process_map(self):
         for layer in self.map.visible_layers:
+            debug("Loading layer: "+str(layer))
             if isinstance(layer, frame.pytmx.TiledTileLayer):
+                # debug(str(layer))
                 for x, y, image in layer.tiles():
+                    # debug((x,y,image))
                     self.surf.blit(image, (x*self.map.tilewidth, y*self.map.tileheight))
             if isinstance(layer, frame.pytmx.TiledObjectGroup):
+                # debug(str(layer))
                 for obj in layer:
+                    # debug(layer.name)
+                    # debug(layer.name=="collision")
                     if layer.name=="collision":
                         d={"rect":{
                             "x":obj.x,

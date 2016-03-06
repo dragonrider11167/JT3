@@ -15,7 +15,12 @@ class ControlsProvider(framebase.Observer):
                 if e.key==pygame.K_SPACE:
                     if player.physics.on_ground>0:
                         player.physics.velocity[1]=-frame.loader["player_jump_speed"]
-                if e.key==pygame.K_a:
-                    player.physics.velocity[0]=-frame.loader["player_run_speed"]
-                if e.key==pygame.K_d:
-                    player.physics.velocity[0]=frame.loader["player_run_speed"]
+
+    def handle_event_render(self, dt):
+        player=frame.entities.entities["player"]
+        pygame=frame.pygame
+        p=pygame.key.get_pressed()
+        if p[pygame.K_a]:
+            player.physics.velocity[0]=-frame.loader["player_run_speed"]
+        elif p[pygame.K_d]:
+            player.physics.velocity[0]=frame.loader["player_run_speed"]

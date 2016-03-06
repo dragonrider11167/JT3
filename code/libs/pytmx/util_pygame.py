@@ -57,6 +57,8 @@ def smart_convert(original, colorkey, pixelalpha):
     else:
         tile = original.convert()
 
+    tile = original.convert_alpha()
+
     return tile
 
 

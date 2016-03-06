@@ -13,11 +13,23 @@ class PhysicsComponent(frame.entities.Component):
     def handle_event_bound_to_manager(self, name):
         if name=="player":self.silly=True
 
-    @property
-    def vel_x(self): return self.velocity[0]
+    def vel_x():
+        doc = "The vel_x property."
+        def fget(self):
+            return self.velocity[0]
+        def fset(self, value):
+            self.velocity[0] = value
+        return locals()
+    vel_x = property(**vel_x())
 
-    @property
-    def vel_y(self): return self.velocity[1]
+    def vel_y():
+        doc = "The vel_y property."
+        def fget(self):
+            return self.velocity[1]
+        def fset(self, value):
+            self.velocity[1] = value
+        return locals()
+    vel_y = property(**vel_y())
 
     def handle_event_render(self, dt):
         if not self.static:
@@ -25,6 +37,10 @@ class PhysicsComponent(frame.entities.Component):
             if self.obeys_gravity:
                 self.velocity[0]+=frame.dphysics.get_x_gravity()*dt
                 self.velocity[1]+=frame.dphysics.get_y_gravity()*dt
+            if self.vel_x>0:
+                self.vel_x=max(self.vel_x-frame.dphysics.get_drag()*dt, 0)
+            else:
+                self.vel_x=min(self.vel_x+frame.dphysics.get_drag()*dt, 0)
             self.entity.rect.x+=self.vel_x*dt
             self.collide(self.vel_x, 0)
             self.entity.rect.y+=self.vel_y*dt

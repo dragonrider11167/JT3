@@ -1,0 +1,9 @@
+{
+  "assets":[
+    {
+      "name":"img_char_ai_base",
+      "type":"image",
+      "path":"$LDIR/ai.png"
+    }
+  ]
+}
