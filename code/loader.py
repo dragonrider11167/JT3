@@ -25,6 +25,7 @@ class Loader:
         for l in ls:
             try: __import__(l)
             except ImportError:
+                exception("Couldn't load "+l)
                 raise AbortModuleLoad(l+" not availible")
 
     def add_load_method(self, ext, func):
