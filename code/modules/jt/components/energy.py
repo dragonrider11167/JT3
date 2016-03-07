@@ -10,13 +10,14 @@ class EnergyComponent(frame.entities.Component):
         self.amount=0.
         self.max=100
         self.incoming=0
+        self.render=True
 
     @property
     def room(self):
         return self.max-self.amount-self.incoming
 
     def transfer_via_electron(self, target, amount):
-        amount=max(0, target.energy.room)
+        amount=min(self.amount, max(0, target.energy.room))
         target.energy.incoming+=amount
         self.amount-=amount
         while amount>0:
@@ -29,7 +30,7 @@ class EnergyComponent(frame.entities.Component):
             amount-=frame.loader["electron_size"]
 
     def handle_event_render(self, dt):
-        pass#frame.screen.blit(frame.pygame.font.SysFont('mono', 16).render(str(self.amount)+"/"+str(self.max)+" ("+str(self.incoming)+")", 0, (0,0,255)), (self.entity.rect.x, self.entity.rect.y-20))
+        if self.render:frame.screen.blit(frame.pygame.font.SysFont('mono', 16).render(str(self.amount)+"/"+str(self.max)+" ("+str(self.incoming)+")", 0, (0,0,255)), (self.entity.rect.x, self.entity.rect.y-20))
 
 @frame.entities.register_this_component("electron")
 class ElectronComponent(frame.entities.Component):

@@ -49,7 +49,7 @@ class PhysicsComponent(frame.entities.Component):
             self.entity.rect.y+=self.vel_y*dt
             if self.collides:self.collide(0, self.vel_y)
             import random
-            # if self.silly:frame.entities.add_entity(frame.entities.Entity.from_dict({"rect":{"x":self.entity.rect.x, "y":self.entity.rect.y, "width":2, "height":2},"physics":{"velocity":[random.uniform(-50, 50), random.uniform(-50, 50)]}}))
+            #if self.silly:frame.particlemanager.add_sq_particle(self.entity.rect.x, self.entity.rect.y, random.uniform(-5,5), random.uniform(-5,5), (0,255,0), (5,5), 5)
 
     def collide(self, xvel, yvel):
         for p in frame.entities.entities.values():

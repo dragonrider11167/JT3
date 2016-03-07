@@ -41,7 +41,9 @@ class Serializable:
 
 class Observer:
     def handle_event(self, name, *args, **kwargs):
-        if "handle_event_"+name in dir(self):
+        try:d=self._dir_cache
+        except AttributeError:self._dir_cache=dir(self)
+        if "handle_event_"+name in self._dir_cache:
             getattr(self, "handle_event_"+name)(*args, **kwargs)
 
 import loader

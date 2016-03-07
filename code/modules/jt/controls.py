@@ -15,6 +15,11 @@ class ControlsProvider(framebase.Observer):
                 if e.key==pygame.K_SPACE:
                     if player.physics.on_ground>0:
                         player.physics.velocity[1]=-frame.loader["player_jump_speed"]
+                    else:
+                        if player.energy.amount>=frame.loader["player_boost_cost"]:
+                            player.energy.amount-=frame.loader["player_boost_cost"]
+                            player.physics.velocity[1]-=frame.loader["player_boost_speed"]
+                            frame.particlemanager.add_particles_from_style("cfg_p_boost", *player.rect.center)
 
     def handle_event_render(self, dt):
         player=frame.entities.entities["player"]
