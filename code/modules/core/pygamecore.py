@@ -15,19 +15,30 @@ class PygameCore(framebase.Observer):
         frame.pygame.init()
         frame.screen=frame.pygame.display.set_mode((800,600))
         frame.pygame.display.set_caption(frame.loader["window_title"])
-        clock=frame.pygame.time.Clock()
+        self.clock=frame.pygame.time.Clock()
         running=True
+
+        debug("Creating a PyConsole (enabled ="+str(frame.loader["enable_pyconsole"])+")")
+        self.pyconsole=frame._pyconsole_Console(frame.screen, (0,0,800,200), localsx={"frame":frame})
 
         frame.send_event("core_loaded")
 
         while running:
-            clock.tick(frame.loader["target_fps"]) if frame.loader["target_fps"]!=-1 else clock.tick()
-            dt=(1/clock.get_fps() if clock.get_fps()>0 else 0)
+            self.clock.tick(frame.loader["target_fps"]) if frame.loader["target_fps"]!=-1 else self.clock.tick()
+            dt=(1/self.clock.get_fps() if self.clock.get_fps()>0 else 0)
             frame.screen.fill((0,0,0))
             frame.send_event("render", dt)
+            self.pyconsole.draw()
             frame.pygame.display.update()
-            for event in frame.pygame.event.get():
+            events=frame.pygame.event.get()
+            frame.send_event("pygame_batch_events", events)
+            self.pyconsole.process_input(events)
+
+            for event in events:
                 frame.send_event("pygame_event", event)
+                if event.type==frame.pygame.KEYDOWN:
+                    if event.key==frame.pygame.K_BACKQUOTE:
+                        if frame.loader["enable_pyconsole"]:self.pyconsole.set_active()
                 if event.type==frame.pygame.QUIT:
                     frame.send_event("shutdown")
                     running=False
