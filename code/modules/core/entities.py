@@ -73,3 +73,4 @@ class EntitiyManager(framebase.Observer):
     def add_entity(self, e, name=None):
         self.add_buffer[name if name else str(len(self.entities.keys())+len(self.add_buffer.keys()))]=e
         e.handle_event("bound_to_manager", name)
+        return e

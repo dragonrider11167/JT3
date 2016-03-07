@@ -10,6 +10,12 @@ class PygameCore(framebase.Observer):
     def __init__(self):
         pass
 
+    def preinit(self):
+        info("Initilizing PygameCore base")
+        frame.pygame.init()
+        frame.screen=frame.pygame.display.set_mode((10,10))
+        frame.pygame.display.set_caption("Loading")
+
     def run_main(self):
         info("Initializing PygameCore")
         frame.pygame.init()

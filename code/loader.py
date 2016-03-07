@@ -85,4 +85,5 @@ class Loader:
             to_load=next_to_load
             last_attempt=to_load
         info("Loading Finished")
+        self._selected=[]
         framebase.frame.send_event("loading_finished")

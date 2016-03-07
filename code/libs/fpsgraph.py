@@ -26,7 +26,8 @@ import pygame, datetime
 FONT        = pygame.font.SysFont("monospace", 14)
 DATASOURCES = (
 #	(NAME,   COLOR,       DATASOURCE,                TYPE,                UPDATE, SCALE,       ARGS...)
-	("FPS",  (0,0,255),   "frame.pygamecore.clock.get_fps()", "RawDatasource",    0.02,     1/10 ),
+	("FPS",  (0,0,255),   "frame.pygamecore.clock.get_fps()", "RawDatasource",    0.04,     1/10 ),
+	("Entities",  (255,0,0),   "len(frame.entities.entities.keys())", "RawDatasource",    0.02,     1 )
 )
 
 KEYMOD    = pygame.KMOD_CTRL

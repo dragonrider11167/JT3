@@ -8,4 +8,6 @@ def ak_load_image(data, fp, dir, fn):
     image=frame.pygame.image.load(data["path"])
     if data.get("convert_alpha", False):
         image=image.convert_alpha()
+    if data.get("scale", False):
+        image=frame.pygame.transform.scale(image, data["scale"])
     return image

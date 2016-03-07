@@ -15,5 +15,5 @@ class EntityTest(framebase.Observer):
 
     def handle_event_core_loaded(self):
         debug("Got core_loaded event!")
-        frame.tmxmap.load_map("modules/jt/level/test.tmx")
+        frame.tmxmap.load_map("modules/jt/level/energy_test.tmx")
         frame.statemanager.push("game")

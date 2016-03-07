@@ -24,3 +24,8 @@ class ControlsProvider(framebase.Observer):
             player.physics.velocity[0]=-frame.loader["player_run_speed"]
         elif p[pygame.K_d]:
             player.physics.velocity[0]=frame.loader["player_run_speed"]
+
+        if pygame.mouse.get_pressed()[0]:
+            for e in frame.entities.entities.values():
+                if e!=player and e.rect.collidepoint(pygame.mouse.get_pos()) and "energy" in e.components.keys():
+                    e.energy.transfer_via_electron(player, 100)
