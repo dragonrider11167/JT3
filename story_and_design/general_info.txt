@@ -30,8 +30,8 @@
 --Triggers (better category name good)
   -Charge plates
     -Hacking
-      -Charge bot (blue)
-      -Discharge bot (red)
+      -Charge bot (blue status color)
+      -Discharge bot (red status color)
     -Can be used to activate/deactivate security and maintainence bots
 
 
