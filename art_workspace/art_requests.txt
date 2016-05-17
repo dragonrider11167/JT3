@@ -4,9 +4,6 @@ INTRO (first apperance)
   -Dark
     -Backgrounds (walls)(posters should be normal color) darker than rest
   -Lots of metal
-  -Posters of various sorts
-    -Puns are great
-    -Will be changed throughout the game
   -Furnature
     -Desks
     -Tables
